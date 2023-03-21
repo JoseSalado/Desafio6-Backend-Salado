@@ -31,7 +31,7 @@ router.post(
   "/",
   passport.authenticate(
     "register",
-    { failureRedirect: "/failRegister" },
+    { failureRedirect: "/failRegister" }),
     async (req, res) => {
       try {
         res.json({ msg: "user has been saved" });
@@ -42,7 +42,6 @@ router.post(
         res.status(500).json({ error: "internal error" });
       }
     }
-  )
 );
 
 router.get("/failRegister", async (req, res) => {
